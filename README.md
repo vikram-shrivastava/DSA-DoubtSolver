@@ -36,14 +36,25 @@ Welcome to the **DSA Learning Web App** – your friendly helper for mastering *
     ```bash
     cd dsa-learning-app
     ```
-3. 📦 Install dependencies
+3. Run the Frontend
     ```bash
+    cd frontend
     npm install
-    ```
-4. ▶️ Run the development server
-    ```bash
     npm run dev
     ```
+🖥️ Frontend will run at: http://localhost:3000
+
+3. Run the Backend
+In a new terminal:
+    ```bash
+    cd backend
+    npm install
+    npm start
+    ```
+
+🔧 Backend will run at: http://localhost:5000 (or configured port)
+
+Make sure both servers are running for full functionality.
 
 💻 App will be running at http://localhost:3000
 
