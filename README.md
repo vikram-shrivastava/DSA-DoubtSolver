@@ -59,7 +59,7 @@ Every contribution makes the app better! 🛠️✨
 
 📬 Contact
 Got questions or feedback? Reach out at:
-📧 your-email@example.com
+📧 vikrampshrivastav@gmail.com
 
 📌 License
 📝 MIT License – free to use and modify.
