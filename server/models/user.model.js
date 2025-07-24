@@ -20,10 +20,6 @@ const userSchema = new Schema({
         required: true,
         minlength: 6
     },
-    topicsCovered:[{
-        type:String,
-        default:""
-    }],
     refreshToken: {
         type: String,
         default: null
@@ -32,6 +28,11 @@ const userSchema = new Schema({
         type: String,
         default: null,
         trim: true
+    },
+    PreferredLanguage:{
+        type:String,
+        default:"Cpp",
+        required:true
     },
     chatMessages:[{
         type:Schema.Types.ObjectId,
