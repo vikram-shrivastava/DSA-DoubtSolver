@@ -245,7 +245,7 @@ const Profile = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-center sm:text-left">
           <div className="relative group">
             <img
-              src={user.avatar}
+              src={leetcodeStats?.profile?.userAvatar || user.avatar}
               alt="Avatar"
               className="w-32 h-32 rounded-full border-4 border-blue-500 dark:border-blue-400 shadow-lg object-cover transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
             />
@@ -297,7 +297,7 @@ const Profile = () => {
 
               <div className="flex flex-col items-center gap-2">
                 <img
-                  src={user.avatar}
+                  src={leetcodeStats?.profile?.userAvatar || user.avatar}
                   alt="Avatar"
                   className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-blue-500 dark:border-blue-400 shadow-lg object-cover"
                 />

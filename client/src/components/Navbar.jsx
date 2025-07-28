@@ -132,6 +132,7 @@ function Header() {
             onClick={handleTheme}
             className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-gray-700 transition-colors duration-300"
             aria-label="Toggle Theme"
+            title="Toggle Theme"
           >
             {isDarkMode ? (
               <svg
@@ -207,6 +208,7 @@ function Header() {
             onClick={handleTheme}
             className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-gray-700 transition-colors duration-300"
             aria-label="Toggle Theme"
+            title="Toggle Theme"
           >
             {isDarkMode ? (
               <svg

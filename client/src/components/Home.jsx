@@ -9,6 +9,7 @@ const DSAHeroSection = () => {
   const [displayText, setDisplayText] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const { isDarkMode } = useTheme();
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const words = ["Data Structures", "Algorithms", "Problem Solving"];
   const companies = [GoogleSvg, UberSvg, appleSvg, NetflixSvg];
 
@@ -41,6 +42,44 @@ const DSAHeroSection = () => {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-gray-950 text-slate-900 dark:text-white relative overflow-hidden">
       {/* Subtle Grid Pattern */}
+       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className={`absolute w-64 h-64 rounded-full opacity-20 blur-3xl animate-pulse ${
+              isDarkMode 
+                ? i % 2 === 0 ? 'bg-blue-500' : 'bg-purple-500'
+                : i % 2 === 0 ? 'bg-blue-300' : 'bg-indigo-300'
+            }`}
+            style={{
+              left: `${20 + (i * 15)}%`,
+              top: `${10 + (i * 12)}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${4 + i}s`,
+              transform: `translate(${Math.sin(mousePosition.x * 0.01 + i) * 20}px, ${Math.cos(mousePosition.y * 0.01 + i) * 20}px)`
+            }}
+          />
+        ))}
+      </div>
+      <div className={`absolute inset-0 opacity-30 pointer-events-none ${isDarkMode ? 'opacity-10' : 'opacity-20'}`}>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: isDarkMode
+              ? `
+                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 1px, transparent 1px),
+                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+              `
+              : `
+                radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.2) 1px, transparent 1px),
+                linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px)
+              `,
+            backgroundSize: "80px 80px, 40px 40px, 40px 40px",
+          }}
+        />
+      </div>
       <div className="absolute inset-0 opacity-20 dark:opacity-10 pointer-events-none">
         <div
           className="absolute inset-0"
@@ -60,25 +99,25 @@ const DSAHeroSection = () => {
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-[85vh] px-6 lg:px-12">
         <div
-          className={`max-w-5xl mx-auto text-center transition-all duration-1000 my-20 ${
+          className={`max-w-5xl md:max-w-screen mx-auto text-center transition-all duration-1000 my-20 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
-            Master{" "}
-            <span className="relative inline-block">
-              <span className="text-blue-600 dark:text-blue-400">
-                {displayText}
+           <h1 className="text-6xl lg:text-8xl font-black mb-6 leading-tight tracking-tight">
+              Master{" "}
+              <span className="relative inline-block">
+                <span className={`bg-gradient-to-r inline-block ${
+                  isDarkMode 
+                    ? 'from-blue-400 to-indigo-500' 
+                    : 'from-blue-600 to-indigo-600'
+                } bg-clip-text text-transparent`}>
+                  {displayText}
+                </span>
+                <span className={`${
+                  isDarkMode ? 'text-blue-400' : 'text-blue-600'
+                }`}>|</span>
               </span>
-              <span className="animate-pulse text-blue-600 dark:text-blue-400">
-                |
-              </span>
-            </span>
-            <br />
-            <span className="text-2xl lg:text-3xl font-semibold leading-snug tracking-tight mt-2 mb-4 text-slate-700 dark:text-slate-300">
-              Your Personal DSA Guide
-            </span>
-          </h1>
+            </h1>
 
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed">
             Accelerate your programming journey with AI-powered personalized
